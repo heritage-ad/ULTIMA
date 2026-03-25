@@ -5,7 +5,7 @@
 // Test driver for semaphore behavior
 int main() {
 
-    // Create scheduler stub (temporary)
+    // Create scheduler stub
     Scheduler sched;
 
     // Create semaphore for "screen" resource
