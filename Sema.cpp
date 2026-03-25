@@ -42,6 +42,7 @@ bool Semaphore::down(int task_id) {
 
     sema_queue.en_Q(task_id);         // add task to queue
     sched_ptr->block_task(task_id);   // scheduler marks it BLOCKED
+    sched_ptr->yield();
 
     return false;
 }
@@ -72,6 +73,7 @@ int Semaphore::up(int task_id) {
 
     // Tell scheduler to make task READY
     sched_ptr->ready_task(next_task);
+    sched_ptr->yield();
 
     std::cout << "[UP] Task " << next_task
               << " awakened and given resource\n";
