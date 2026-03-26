@@ -1,3 +1,7 @@
+// Author: Heritage Adigun
+// Module: Binary Semaphore
+// Description: Tests semaphore synchronization for shared resources
+
 #include <iostream>
 #include "Sema.h"
 #include "Sched.h"
