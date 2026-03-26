@@ -1,3 +1,7 @@
+// Author: Heritage Adigun
+// Module: Binary Semaphore
+// Description: Implements semaphore synchronization for shared resources
+
 #ifndef QUEUE_H
 #define QUEUE_H
 
