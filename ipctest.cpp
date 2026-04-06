@@ -3,9 +3,9 @@
 #include "Sched.h"
 #include "Sema.h"
 
-/*
- * Test driver for IPC system
- */
+// Author: Heritage Adigun
+// Module: IPC 
+// Description: Test driver for IPC system
 
 int main() {
 
