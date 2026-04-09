@@ -4,8 +4,10 @@
 #include <string>
 #include <iostream>
 
+// task states 
 enum TaskState { RUNNING, READY, BLOCKED, DEAD };
 
+// task structure
 struct TCB {
     int task_id;
     std::string task_name;
@@ -26,14 +28,17 @@ public:
     Scheduler();
 
     int create_task(const std::string& name);
+
     void yield();
-    void kill_task(int task_id);
-    void garbage_collect();
 
     void block_task(int task_id);
     void ready_task(int task_id);
 
+    void kill_task(int task_id);
+    void garbage_collect();
+
     TCB* find_task(int task_id);
+
     void dump() const;
 };
 
