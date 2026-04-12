@@ -1,0 +1,18 @@
+
+--- IPC: Sending Messages ---
+
+--- IPC: Receiving Messages ---
+
+--- Initial State ---
+
+--- Task1 requesting resource ---
+
+[Scheduler] Task 1 is yielding CPU...
+
+--- Task2 requesting resource ---
+
+[Scheduler] Task 1 is yielding CPU...
+
+--- Task3 requesting resource ---
+
+--- Releasing resource ---

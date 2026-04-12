@@ -8,6 +8,7 @@ Scheduler::Scheduler() {
 }
 
 // add a new task to the list
+
 int Scheduler::create_task(const std::string& name) {
 
     TCB* newTask = new TCB(next_task_id, name);
@@ -143,4 +144,11 @@ void Scheduler::dump() const {
 
         temp = temp->next;
     }
+}
+
+int Scheduler::getCurrentTask() {
+    if (current == nullptr) {
+        return -1; // no task running
+    }
+    return current->task_id;  // 👈 access the ID
 }

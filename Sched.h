@@ -40,6 +40,8 @@ public:
     TCB* find_task(int task_id);
 
     void dump() const;
+
+    int getCurrentTask();
 };
 
 #endif
