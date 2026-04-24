@@ -382,8 +382,6 @@ int MMU::Mem_Dump(int starting_from, int num_bytes) const {
             std::cout << "\n";
         }
     }
-    std::cout << "\n============================\n";
-
     return 1;
 }
 
@@ -392,19 +390,24 @@ int MMU::Mem_Dump(int starting_from, int num_bytes) const {
  */
 void MMU::List_Dump() const {
     std::cout << "\n===== MEMORY BLOCK LIST =====\n";
-    std::cout << "Status\tHandle\tStart\tEnd\tSize\tCurrent\tTask\n";
+    printf("%-10s %-15s %-18s %-16s %-12s %-18s %-10s\n",
+           "Status", "Memory Handle", "Starting Location",
+           "Ending Location", "Size/Bytes", "Current Location", "Task-ID");
 
     MemBlock* temp = head;
-    while (temp != nullptr) {
-        std::cout << (temp->is_free ? "Free" : "Used") << "\t"
-                  << temp->mem_handle << "\t"
-                  << temp->start << "\t"
-                  << temp->end << "\t"
-                  << temp->size << "\t"
-                  << (temp->is_free ? -1 : temp->current_location) << "\t"
-                  << temp->task_id << "\n";
+       while (temp != nullptr) {
+    std::string currentLoc = temp->is_free ? "NA" : std::to_string(temp->current_location);
+        std::string taskId     = temp->is_free ? "MMU" : std::to_string(temp->task_id);
+
+        printf("%-10s %-15d %-18d %-16d %-12d %-18s %-10s\n",
+               (temp->is_free ? "Free" : "Used"),
+               temp->mem_handle,
+               temp->start,
+               temp->end,
+               temp->size,
+               currentLoc.c_str(),
+               taskId.c_str());
         temp = temp->next;
     }
 
-    std::cout << "=============================\n";
 }

@@ -100,8 +100,6 @@ void Semaphore::dump(int level) const {
     if (level > 1) {
         std::cout << "Queue size: " << sema_queue.size() << "\n";
     }
-
-    std::cout << "====================\n";
 }
 
 // Getter methods

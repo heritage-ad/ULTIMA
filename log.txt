@@ -16,3 +16,27 @@
 --- Task3 requesting resource ---
 
 --- Releasing resource ---
+     PHASE 3: MEMORY        
+
+--- Memory Allocation ---
+Task1 allocated memory (Handle 1)
+Task2 allocated memory (Handle 2)
+Task3 failed to allocate memory (Not enough memory)
+
+--- Writing ---
+
+--- Reading ---
+Task1 read: .
+
+--- Freeing Memory ---
+Task1 freed memory
+
+--- Reallocation ---
+Task3 successfully allocated memory after free
+
+--- Memory Dump ---
+
+--- Memory Block List ---
+
+Memory Left: 640
+Largest Free Block: 640
