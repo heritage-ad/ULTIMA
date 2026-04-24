@@ -25,6 +25,21 @@ IPC::IPC(Semaphore* s, Scheduler* sc) {
  */
 void IPC::Message_Send(int sender_id, int receiver_id, const std::string& data) {
 
+    /* Author: Heidi Ganim
+     * Extra Credit: Secure IPC
+     * Description:
+     * Adds validation checks for safe communication
+     */
+    if (sender_id <= 0 || receiver_id <= 0) {
+        std::cout << "[SECURITY] Invalid sender/receiver ID\n";
+        return;
+    }
+
+    if (sender_id == receiver_id) {
+        std::cout << "[SECURITY] Task cannot send message to itself\n";
+        return;
+    }
+
     // Acquire access to message queue
     sema->down(sender_id);
 
@@ -47,6 +62,12 @@ void IPC::Message_Send(int sender_id, int receiver_id, const std::string& data) 
  * Retrieves a message for the given task.
  */
 void IPC::Message_Receive(int receiver_id) {
+
+    // Heidi: validates receiver ID to prevent invalid access to the message queue
+    if (receiver_id <= 0) {
+    std::cout << "[SECURITY] Invalid receiver ID\n";
+    return;
+}
 
     // Acquire access to queue
     sema->down(receiver_id);

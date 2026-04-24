@@ -55,6 +55,7 @@ public:
     int Mem_Coalesce();
     int Mem_Dump(int starting_from, int num_bytes) const;
     void List_Dump() const;
+    int Mem_Reset(int task_id, int mem_handle);  // Added by Heidi Ganim: reset current_location to start for reuse/testing
 };
 
 #endif

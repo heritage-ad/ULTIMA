@@ -183,6 +183,9 @@ int MMU::Mem_Free(int task_id, int mem_handle) {
     core_sema->up(task_id);
     return 1;
 }
+/* Heidi Ganim
+ * Section: Memory Access + Integration
+ */
 
 /*
  * Mem_Read (single char):
@@ -276,6 +279,21 @@ int MMU::Mem_Write(int task_id, int mem_handle, int offset_from_beg, int text_si
         memory[start_pos + i] = text[i];
     }
 
+    return 1;
+}
+
+/*
+ * Mem_Reset:
+ * - Resets current location to beginning of block
+ */
+int MMU::Mem_Reset(int task_id, int mem_handle) {
+    MemBlock* block = find_block_by_handle(mem_handle);
+
+    if (block == nullptr || block->is_free || block->task_id != task_id) {
+        return -1;
+    }
+
+    block->current_location = block->start;
     return 1;
 }
 
