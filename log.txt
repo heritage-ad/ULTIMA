@@ -1,7 +1,7 @@
 
---- IPC: Sending Messages ---
+--- SECURE IPC: Sending Messages ---
 
---- IPC: Receiving Messages ---
+--- SECURE IPC: Receiving Messages ---
 
 --- Initial State ---
 

@@ -1,3 +1,5 @@
+/*Author: Inioluwa Oyatobo*/
+#include "EncryptedIPC.h"
 #include <iostream>
 #include "Sched.h"
 #include "Sema.h"
@@ -23,7 +25,7 @@ int main() {
     Semaphore sem("Printer", 1, &sched);
     Semaphore core("Core Memory", 1, &sched);
 
-    IPC ipc(&sem, &sched);
+    EncryptedIPC eipc(&sem);
     MMU mmu(1024, '.', 128, &core, &sched);
 
 
@@ -35,19 +37,19 @@ int main() {
     // PHASE 2 (IPC)
 
 
-    logBoth(logFile, "\n--- IPC: Sending Messages ---\n");
+    logBoth(logFile, "\n--- SECURE IPC: Sending Messages ---\n");
 
-    ipc.Message_Send(2, 1, "Hello from Task2");
-    ipc.Message_Send(3, 1, "Hello from Task3");
+    eipc.Message_Send(2, 1, "Hello from Task2");
+    eipc.Message_Send(3, 1, "Secret Message");
 
-    ipc.dump();
+    //ipc.dump();
 
-    logBoth(logFile, "\n--- IPC: Receiving Messages ---\n");
+    logBoth(logFile, "\n--- SECURE IPC: Receiving Messages ---\n");
 
-    ipc.Message_Receive(1);
-    ipc.Message_Receive(1);
+    eipc.Message_Receive(1);
+    eipc.Message_Receive(1);
 
-    ipc.dump();
+    //ipc.dump();
 
     
     // PHASE 1 (Scheduler + Semaphore)
